@@ -3,6 +3,7 @@ package com.microservice2.controller;
 import com.microservice2.client.WelcomeClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,5 +18,10 @@ public class MicroService2Controller {
     @GetMapping("/call")
     public String getMessageFromMicroService1(){
         return welcomeClient.getMessage() + " " + welcomeClient.postHello("we are Learning microservices") ;
+    }
+
+    @PostMapping("/hello")
+    public String postHelloMessageFromMicroService1(){
+       return welcomeClient.postHello("we are Learning microservices");
     }
 }
